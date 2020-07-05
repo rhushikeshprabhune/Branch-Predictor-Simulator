@@ -7,8 +7,8 @@
 using namespace std;
 
 typedef struct{
-unsigned long t_tag, t_LRU_counter, t_dirty_bit, t_valid_bit; //Define structure for
-}btb_table; //structure for BTB
+unsigned long t_tag, t_LRU_counter, t_dirty_bit, t_valid_bit; //Define structure for BTB
+}btb_table; 
 
 int main(int argc, char * argv[])
 {
