@@ -10,11 +10,11 @@ typedef struct{
 unsigned long t_tag, t_LRU_counter, t_dirty_bit, t_valid_bit; //Define structure for BTB
 }btb_table; 
 
-int main(int argc, char * argv[])
+int main(int argc, char* argv[])
 {
-	char * trace_file;
+	char* trace_file;
 	unsigned long M1, M2, N, K, BTB_SIZE, BTB_ASSOC;
-	char * predictor = argv[1];
+	char* predictor = argv[1];
 	//cmd line args for bimodal branch predictor
 	if (!strcmp(argv[1], "bimodal"))
 	{
@@ -84,8 +84,8 @@ int main(int argc, char * argv[])
 	writes = 0;
 	read_misses = 0;
 	write_misses = 0;
-	btb_table ** btb_cache;
-	btb_cache = new btb_table * [sets]; //Define the two dimentional array for BTB table
+	btb_table** btb_cache;
+	btb_cache = new btb_table* [sets]; //Define the two dimentional array for BTB table
 	for (unsigned int i = 0; i < sets; i++)
 	{
 		btb_cache[i] = new btb_table[BTB_ASSOC];
@@ -104,7 +104,7 @@ int main(int argc, char * argv[])
 
 
 	unsigned long bimodal_table_size = pow(2, M2); //declare prediction table for bimodal
-	unsigned int * pred_table_bimodal;
+	unsigned int* pred_table_bimodal;
 	pred_table_bimodal = new unsigned int[bimodal_table_size];
 	for (unsigned long i = 0; i < bimodal_table_size; i++)
 	{
@@ -112,7 +112,7 @@ int main(int argc, char * argv[])
 	}
 
 	unsigned long gshare_table_size = pow(2, M1); //declare prediction table for gshare
-	unsigned int * pred_table_gshare;
+	unsigned int* pred_table_gshare;
 	pred_table_gshare = new unsigned int[gshare_table_size];
 	for (unsigned int j = 0; j < gshare_table_size; j++)
 	{
@@ -120,7 +120,7 @@ int main(int argc, char * argv[])
 	}
 
 	unsigned long chooser_table_size = pow(2, K); //chooser table for hybrid
-	unsigned int * chooser_table;
+	unsigned int* chooser_table;
 	chooser_table = new unsigned int[chooser_table_size];
 	for (unsigned int j = 0; j < chooser_table_size; j++)
 	{
